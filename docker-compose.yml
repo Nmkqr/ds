@@ -6,6 +6,8 @@ services:
     environment:
       - SERVER_PORT=2333
       - LAVALINK_SERVER_PASSWORD=${LAVALINK_PASSWORD}
+    volumes:
+      - './lavalink-config/application.yml:/opt/Lavalink/application.yml'
     networks:
       - music-network
 
