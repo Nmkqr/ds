@@ -8,7 +8,7 @@ const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const Nodes = [{
     name: 'main',
     // استخدمنا الاسم الداخلي لـ Lavalink في Coolify
-    url: 'docker-image-gwgo0owkc48o8ksw0s0gcsow:2333', 
+    url: 'http://gwgo0owkc48o8ksw0s0gcsow.164.68.99.188.sslip.io', 
     auth: 'youshallnotpass', 
     secure: false
 }];
