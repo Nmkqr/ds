@@ -6,13 +6,17 @@ lavalink:
   server:
     password: "Nmk057007"
     sources:
-      youtube: true
+      youtube: false
       soundcloud: true
       http: true
 
 plugins:
   - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.4"
     snapshot: false
+
+pluginsConfig:
+  youtube:
+    enabled: true
 
 logging:
   level:
