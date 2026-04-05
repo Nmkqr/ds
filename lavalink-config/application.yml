@@ -4,7 +4,7 @@ server:
 
 lavalink:
   server:
-    password: "${LAVALINK_PASSWORD}"
+    password: "Nmk057007"
     sources:
       youtube: true
       soundcloud: true
