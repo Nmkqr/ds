@@ -3,8 +3,9 @@ services:
     image: 'ghcr.io/lavalink-devs/lavalink:4'
     container_name: lavalink
     restart: unless-stopped
-    volumes:
-      - './lavalink-config/application.yml:/opt/Lavalink/application.yml'
+    environment:
+      - SERVER_PORT=2333
+      - LAVALINK_SERVER_PASSWORD=${LAVALINK_PASSWORD}
     networks:
       - music-network
 
