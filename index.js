@@ -8,7 +8,7 @@ const DISCORD_TOKEN = process.env.DISCORD_TOKEN;
 const Nodes = [{
     name: 'main',
     // استخدمنا الاسم الداخلي لـ Lavalink في Coolify
-    url: 'lavalink', 
+    url: 'lavalink-i0gog0sk80swocw0kcww048c:2333',
     auth: 'youshallnotpass', 
     secure: false
 }];
