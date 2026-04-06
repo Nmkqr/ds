@@ -1,25 +1,28 @@
+version: '3.8'
+
 services:
   lavalink:
     image: 'ghcr.io/lavalink-devs/lavalink:4'
     container_name: lavalink
     restart: unless-stopped
     volumes:
-      # تأكد أن الملف موجود في المستودع بنفس الاسم
+      # ربط ملف الإعدادات (تأكد أن الملف موجود في المجلد الرئيسي بجانب هذا الملف)
       - './application.yml:/opt/Lavalink/application.yml'
     networks:
       - music-network
 
   music-bot:
-    # إذا كان ملف Dockerfile في المجلد الرئيسي، استخدم . فقط
-    build: .
+    build:
+      context: .
+      dockerfile: bot/Dockerfile # المسار الصحيح لأن ملف Dockerfile موجود داخل مجلد bot
     container_name: music-bot
     restart: unless-stopped
     environment:
       - 'DISCORD_TOKEN=${DISCORD_TOKEN}'
       - 'CLIENT_ID=${CLIENT_ID}'
       - 'LAVALINK_PASSWORD=${LAVALINK_PASSWORD}'
-      - LAVALINK_HOST=lavalink
-      - LAVALINK_PORT=2333
+      - 'LAVALINK_HOST=lavalink'
+      - 'LAVALINK_PORT=2333'
     depends_on:
       - lavalink
     networks:
