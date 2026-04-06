@@ -6,18 +6,28 @@ lavalink:
   server:
     password: "Nmk057007"
     sources:
-      youtube: false
+      youtube: false   # 🔥 مهم جدًا (تعطيل القديم)
       soundcloud: true
       http: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    opusEncodingQuality: 10
 
-plugins:
-  - dependency: "dev.lavalink.youtube:youtube-plugin:1.11.4"
-    snapshot: false
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.12.0"
+      snapshot: false
 
 pluginsConfig:
   youtube:
     enabled: true
+    allowSearch: true
+    allowDirectVideoIds: true
+    clients:
+      - MUSIC
+      - WEB
+      - ANDROID
 
 logging:
   level:
+    root: INFO
     lavalink: INFO
