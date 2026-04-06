@@ -3,20 +3,18 @@ server:
   address: 0.0.0.0
 
 lavalink:
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.12.0"
+      snapshot: false
   server:
     password: "Nmk057007"
     sources:
-      youtube: false # مهم جداً لتعطيل النظام القديم
+      youtube: false # تعطيل النظام القديم ليعمل الـ Plugin
       soundcloud: true
       http: true
     bufferDurationMs: 400
     frameBufferDurationMs: 5000
     opusEncodingQuality: 10
-
-# تأكد أن كلمة plugins تحت محاذاة كلمة lavalink تماماً
-plugins:
-  - dependency: "dev.lavalink.youtube:youtube-plugin:1.12.0"
-    snapshot: false
 
 pluginsConfig:
   youtube:
