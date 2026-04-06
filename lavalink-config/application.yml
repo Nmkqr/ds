@@ -6,16 +6,14 @@ lavalink:
   server:
     password: "Nmk057007"
     sources:
-      youtube: false        # تعطيل المصدر القديم المدمج لاستخدام الإضافة الجديدة
+      youtube: false # مهم جداً لتعطيل النظام القديم
       soundcloud: true
       http: true
-      bandcamp: true
-      twitch: true
-      vimeo: true
     bufferDurationMs: 400
     frameBufferDurationMs: 5000
     opusEncodingQuality: 10
 
+# تأكد أن كلمة plugins تحت محاذاة كلمة lavalink تماماً
 plugins:
   - dependency: "dev.lavalink.youtube:youtube-plugin:1.12.0"
     snapshot: false
@@ -26,7 +24,6 @@ pluginsConfig:
     allowSearch: true
     allowDirectVideoIds: true
     allowDirectPlaylistIds: true
-    # هذه الإعدادات تساعد في تجنب حظر يوتيوب للـ IP
     clients:
       - MUSIC
       - WEB
