@@ -1,7 +1,20 @@
+# استخدام نسخة Node.js مستقرة وخفيفة
 FROM node:20-alpine
+
+# تثبيت الأدوات اللازمة (مثل wget للفحص إذا احتجت)
 RUN apk add --no-cache wget
+
+# تحديد مجلد العمل داخل الحاوية
 WORKDIR /app
-COPY package*.json ./
+
+# نسخ ملفات التعريف وتثبيت المكتبات البرمجية
+# نستخدم bot/ لأن الملفات موجودة داخل هذا المجلد في مستودعك
+COPY bot/package*.json ./
 RUN npm install
-COPY . .
-CMD ["sh", "-c", "sleep 20 && node index.js"]
+
+# نسخ باقي ملفات البوت إلى مجلد العمل
+COPY bot/ .
+
+# تشغيل البوت مع انتظار بسيط لضمان تشغيل Lavalink أولاً
+# ملاحظة: تم تعديل المسار ليكون node index.js مباشرة لأننا داخل مجلد العمل
+CMD ["sh", "-c", "sleep 15 && node index.js"]
