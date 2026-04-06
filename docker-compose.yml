@@ -6,15 +6,15 @@ services:
     container_name: lavalink
     restart: unless-stopped
     volumes:
-      # ربط ملف الإعدادات (تأكد أن الملف موجود في المجلد الرئيسي بجانب هذا الملف)
-      - './application.yml:/opt/Lavalink/application.yml'
+      # هذا السطر تم تعديله ليقرأ من المجلد الصحيح الذي ظهر في صورتك
+      - './lavalink-config/application.yml:/opt/Lavalink/application.yml'
     networks:
       - music-network
 
   music-bot:
     build:
       context: .
-      dockerfile: bot/Dockerfile # المسار الصحيح لأن ملف Dockerfile موجود داخل مجلد bot
+      dockerfile: bot/Dockerfile
     container_name: music-bot
     restart: unless-stopped
     environment:
