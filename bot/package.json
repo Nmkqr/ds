@@ -1,1 +1,37 @@
-Original file line numberDiff line numberDiff line change@@ -1,17 +1,19 @@{  "name": "music-bot",  "version": "1.0.0",  "description": "Discord Music Bot using Lavalink v4",  "main": "index.js",  "scripts": {    "start": "node index.js"  },  "dependencies": {    "discord.js": "^14.15.3",    "shoukaku": "^4.3.0",    "kazagumo": "3.2.1"  },  "engines": {    "node": ">=20.0.0"  }}
+services:
+
+  lavalink:
+
+    image: lavalink/lavalink:4
+
+    # ... باقي الإعدادات
+
+    networks:
+
+      - bot-network
+
+
+
+  music-bot:
+
+    build:
+
+      context: .
+
+      dockerfile: bot/Dockerfile
+
+    depends_on:
+
+      - lavalink
+
+    networks:
+
+      - bot-network
+
+
+
+networks:
+
+  bot-network:
+
+    driver: bridge
