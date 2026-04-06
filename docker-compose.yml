@@ -3,16 +3,15 @@ services:
     image: 'ghcr.io/lavalink-devs/lavalink:4'
     container_name: lavalink
     restart: unless-stopped
-    environment:
-      - SERVER_PORT=2333
-      - LAVALINK_SERVER_PASSWORD=${LAVALINK_PASSWORD}
     volumes:
-      - './lavalink-config/application.yml:/opt/Lavalink/application.yml'
+      # تأكد أن الملف موجود في المستودع بنفس الاسم
+      - './application.yml:/opt/Lavalink/application.yml'
     networks:
       - music-network
 
   music-bot:
-    build: ./bot
+    # إذا كان ملف Dockerfile في المجلد الرئيسي، استخدم . فقط
+    build: .
     container_name: music-bot
     restart: unless-stopped
     environment:
